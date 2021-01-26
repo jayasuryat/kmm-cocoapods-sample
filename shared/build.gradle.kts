@@ -15,7 +15,8 @@ kotlin {
     cocoapods {
         summary = "This is sample Summary"
         homepage = "Home URL"
-        pod("AFNetworking", "~> 3.2.0")
+        ios.deploymentTarget = "10.0"
+        pod("AFNetworking", "~> 4.0.0")
     }
 
     sourceSets {
