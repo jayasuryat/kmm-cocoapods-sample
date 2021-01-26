@@ -1,17 +1,33 @@
 import SwiftUI
 import shared
 
-func greet() -> String {
+private let greetings = Greeting()
+private let networkHelper = NetworkHelper()
+
+private func greet() -> String{
     return Greeting().greeting()
 }
 
-func isNetworkAvailable() -> String{
-    return Greeting().isNetAvailable()
+private func getisNetworkAvailable() -> String{
+    return networkHelper.isNetAvailable()
 }
 
 struct ContentView: View {
+    
+    @State var isNetworkAvailable = "false"
     var body: some View {
-        Text(greet() + " " +  isNetworkAvailable())
+        VStack {
+            Spacer()
+            Text(greet())
+            Text("IsNetwokrAvailable : " + self.isNetworkAvailable)
+            Spacer()
+            Button(action: {
+                self.isNetworkAvailable = getisNetworkAvailable()
+            }) {
+                Text("Refresh")
+            }
+            Spacer()
+        }
     }
 }
 
