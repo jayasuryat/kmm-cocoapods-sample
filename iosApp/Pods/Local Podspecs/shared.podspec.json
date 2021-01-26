@@ -13,9 +13,12 @@
   "vendored_frameworks": "build/cocoapods/framework/shared.framework",
   "libraries": "c++",
   "module_name": "shared_umbrella",
+  "platforms": {
+    "ios": "10.0"
+  },
   "dependencies": {
     "AFNetworking": [
-      "~> 3.2.0"
+      "~> 4.0.0"
     ]
   },
   "pod_target_xcconfig": {
@@ -34,11 +37,5 @@
       "shell_path": "/bin/sh",
       "script": "                set -ev\n                REPO_ROOT=\"$PODS_TARGET_SRCROOT\"\n                \"$REPO_ROOT/../gradlew\" -p \"$REPO_ROOT\" :shared:syncFramework                     -Pkotlin.native.cocoapods.target=$KOTLIN_TARGET                     -Pkotlin.native.cocoapods.configuration=$CONFIGURATION                     -Pkotlin.native.cocoapods.cflags=\"$OTHER_CFLAGS\"                     -Pkotlin.native.cocoapods.paths.headers=\"$HEADER_SEARCH_PATHS\"                     -Pkotlin.native.cocoapods.paths.frameworks=\"$FRAMEWORK_SEARCH_PATHS\"\n"
     }
-  ],
-  "platforms": {
-    "osx": null,
-    "ios": null,
-    "tvos": null,
-    "watchos": null
-  }
+  ]
 }
